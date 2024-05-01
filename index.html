@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавление здания</title>
+</head>
+<body>
+    <h1>Добавление здания</h1>
+    <form action="/cgi-bin/add_building.py">
+        <label for="name">Название:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="address">Адрес:</label><br>
+        <input type="text" id="address" name="address"><br>
+        <label for="year_built">Год постройки:</label><br>
+        <select id="year_built" ><br>
+	          <option value=""></option>
+	          <script>
+		        let y = 1100
+		        while(y<2025)
+	       	    {
+			       y++
+		           document.getElementById('year_built').innerHTML += '<option>'+y+'</option>'
+		        }
+              </script>
+        </select><br>
+        <label for="architect">Архитектор:</label><br>
+        <input type="text" id="architect" name="architect"><br><br>
+        <input type="submit" value="Добавить">
+    </form>
+    <br>
+    <a href="/cgi-bin/view-table.py"><button>Посмотреть содержимое таблицы</button></a>
+    <br>
+    <a href="/cgi-bin/export.py"><button>Экспортировать таблицу</button></a>
+    <br>
+    <a href="/cgi-bin/import.py"><button>Импортировать таблицу</button></a>
+
+</body>
+</html>
